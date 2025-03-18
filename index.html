@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片压缩工具</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>图片压缩工具</h1>
+            <p>简单易用的在线图片压缩服务</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="imageInput" accept="image/*" multiple class="hidden">
+                    <div class="upload-content">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <p>点击或拖拽图片到这里</p>
+                        <p class="upload-hint">支持批量上传 PNG、JPG 格式，最多同时上传10张</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-section hidden" id="previewSection">
+                <!-- 第一张图片对比预览 -->
+                <div class="first-image-preview">
+                    <h2>图片压缩对比</h2>
+                    <div class="comparison-container">
+                        <div class="comparison-box">
+                            <h3>原始图片</h3>
+                            <div class="image-container">
+                                <img id="originalImage" src="" alt="原始图片">
+                            </div>
+                            <div class="image-info">
+                                <span>原始大小：</span>
+                                <span id="originalSize">-</span>
+                            </div>
+                        </div>
+                        <div class="comparison-box">
+                            <h3>压缩后</h3>
+                            <div class="image-container">
+                                <img id="compressedImage" src="" alt="压缩后图片">
+                            </div>
+                            <div class="image-info">
+                                <span>压缩后大小：</span>
+                                <span id="compressedSize">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 待处理图片列表 -->
+                <div class="image-list hidden" id="imageList">
+                    <h2>待处理图片列表</h2>
+                    <div class="image-list-container" id="imageListContainer">
+                        <!-- 图片列表将通过JavaScript动态添加 -->
+                    </div>
+                </div>
+
+                <!-- 压缩控制区域 -->
+                <div class="compression-controls">
+                    <div class="quality-control">
+                        <label for="qualitySlider">压缩质量：<span id="qualityValue">80%</span></label>
+                        <input type="range" id="qualitySlider" min="1" max="100" value="80">
+                    </div>
+                    <div class="action-buttons">
+                        <button id="downloadCurrentBtn" class="action-btn" disabled>下载当前图片</button>
+                        <button id="downloadAllBtn" class="action-btn" disabled>下载所有压缩后的图片</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
